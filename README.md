@@ -1,5 +1,11 @@
 # 精品课教学设计 Codex Skill
 
+## 最新更新 v1.0.1
+
+本版统一教学设计的段落与语言规则：课题、年级等基本信息和各级标题不设置首行缩进；正文使用独立Word段落并首行缩进2个汉字；自写标题及正文不用破折号或箭头词语串；中文双引号成对使用并核查中文字体显示。标题分页通过局部段落属性处理，不把标题与正文合并成软换行段落。详细要求及验收条目见技能规则文件。
+
+下载[最新完整技能包](https://github.com/zoujiafu0-a11y/kjh-teaching-design-excellentcourse/releases/latest)，或使用仓库course-skill-packages目录中的同名ZIP。其他技能包维持原版本。
+
 `kjh-teaching-design-excellentcourse` 用于制作和修改中小学精品课教学设计，交付可编辑 Word 成稿、AI 教学脚本和质量检查记录。
 
 ## 主要功能

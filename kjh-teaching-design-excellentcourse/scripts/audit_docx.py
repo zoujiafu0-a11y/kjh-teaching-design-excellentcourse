@@ -12,6 +12,39 @@ def package(p):
     with ZipFile(p) as z:
         if z.testzip() is not None:raise ValueError('Bad DOCX ZIP')
         return {n:z.read(n) for n in z.namelist()}
+
+def delivery_review(document,filename):
+    """Find default-rule issues; context/user overrides still require human review."""
+    findings=[]
+    for i,p in enumerate(document.findall('.//w:p',N),1):
+        text=''.join(p.xpath('.//w:t/text()',namespaces=N))
+        patterns={
+            'teaching_time':r'[（(]\s*\d+(?:\s*(?:至|到|[-—–~～])\s*\d+)?\s*(?:分钟|秒钟|秒)\s*[）)]|(?:授课时长|总时长|用时|耗时)\s*[:：]?\s*\d+|(?:作答|思考|讨论|提问|播放|停顿|本课用|用)\s*(?:约)?\d+\s*(?:分钟|秒钟|秒)',
+            'unicode_sup_sub':r'[\u00b2\u00b3\u00b9\u2070-\u209f]',
+            'non_chinese_double_quote':r'["＂〝〞]',
+        }
+        for category,pattern in patterns.items():
+            if re.search(pattern,text):findings.append({'category':category,'paragraph':i,'text':text})
+    # Locate the textbook row by its label, not by a fixed row number.
+    textbook_rows=[]
+    for row in document.findall('.//w:tr',N):
+        cells=row.findall('w:tc',N)
+        if cells and ''.join(cells[0].xpath('.//w:t/text()',namespaces=N)).strip()=='教科书':
+            textbook_rows.append(''.join(row.xpath('.//w:t/text()',namespaces=N)))
+    if not textbook_rows:
+        findings.append({'category':'textbook_block_not_found','text':'需按实际模板人工确认教科书板块'})
+    for text in textbook_rows:
+        for label,pattern in [('书名',r'书\s*名\s*[:：]'),('出版社',r'出版社\s*[:：]'),('出版日期',r'出版日期\s*[:：]')]:
+            if not re.search(pattern,text):findings.append({'category':'textbook_field_missing','field':label,'text':text})
+        if re.search(r'(?:内容|页码|授课时长|课时|教学时长|教学范围)\s*[:：]',text):
+            findings.append({'category':'textbook_extra_metadata','text':text})
+    text=''.join(document.xpath('.//w:t/text()',namespaces=N))
+    if text.count('“')!=text.count('”'):
+        findings.append({'category':'unbalanced_chinese_quotes','text':'中文双引号数量不配对，须逐处检查'})
+    if Path(filename).name!='教学设计.docx':
+        findings.append({'category':'default_filename','text':Path(filename).name})
+    native=document.findall('.//w:vertAlign',N)
+    return {'candidates':findings,'native_superscript_runs':sum(x.get('{'+N['w']+'}val')=='superscript' for x in native),'native_subscript_runs':sum(x.get('{'+N['w']+'}val')=='subscript' for x in native),'not_final_acceptance':True}
 def audit(task,docx,template):
     task=Path(task).resolve(strict=True)
     docx=Path(docx).resolve(strict=True);template=Path(template).resolve(strict=True)
@@ -50,6 +83,7 @@ def audit(task,docx,template):
     cfgpath=task/'work/intake.json'
     cfg=json.loads(cfgpath.read_text(encoding='utf-8-sig')) if cfgpath.exists() else {}
     result={'machine_checks':checks,'machine_checks_pass':all(checks.values()),'not_final_acceptance':True,'docx_sha256':sha(docx),'template_sha256':sha(template),'text_characters':len(text),'source_checks':source_checks,'language_candidates_for_context_review':candidates,'mode':cfg.get('classroom','unknown'),'changed_original_parts':[n for n in A if B.get(n)!=A[n]],'new_parts':sorted(set(B)-set(A)),'manual_required':['Actual viewing of eight cases','Verified textbook edition and facts','Teaching mode and AI scope','Seven language rules in context','Fonts and sizes against user requirements','Open Word and inspect every page of the latest render','Media playback if required']}
+    result['delivery_defaults_review']=delivery_review(b,docx)
     (task/'work').mkdir(exist_ok=True)
     (task/'work/machine_audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
     return result
