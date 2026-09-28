@@ -1,6 +1,6 @@
 # 精品课课程制作技能包
 
-本目录提供7个可单独使用的Codex技能完整包。每个ZIP内保留技能文件夹、SKILL.md、界面配置、参考规则、脚本及该技能自带的模板和案例。归档日期：2026-09-27。
+本目录提供7个可单独使用的Codex技能完整包。每个ZIP内保留技能文件夹、SKILL.md、界面配置、参考规则、脚本及该技能自带的模板和案例。归档日期：2026-09-27；逐字稿技能包于2026-09-28更新。
 
 ## 技能与调用
 
@@ -13,6 +13,10 @@
 |`$kjh-ppt-excellentcourse`|课件.pptx|[kjh-ppt-excellentcourse.zip](kjh-ppt-excellentcourse.zip)|
 |`$kjh-transcripts-excellentcourse`|逐字稿.docx|[kjh-transcripts-excellentcourse.zip](kjh-transcripts-excellentcourse.zip)|
 |`$kjh-homework-excellentcourse`|作业练习.docx|[kjh-homework-excellentcourse.zip](kjh-homework-excellentcourse.zip)|
+
+## 逐字稿技能包更新
+
+本次逐字稿包默认按无生课堂编写，只写教师口播与真实PPT播放提示；用户明确要求有生课堂时才加入学生互动。制作Word时逐项对照用户指定的参考稿字体、字号、标题样式和段落格式。包内新增`references/tutorial.md`，提供可直接用于Codex的执行指令与验收条件。
 
 ## 安装
 
