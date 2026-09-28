@@ -3,6 +3,7 @@ from pathlib import Path
 from zipfile import ZipFile
 from lxml import etree as E
 import argparse,hashlib,json,re,posixpath
+from check_intake import review_intake
 N={'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def tree(e):
@@ -19,6 +20,7 @@ def delivery_review(document,filename):
     for i,p in enumerate(document.findall('.//w:p',N),1):
         text=''.join(p.xpath('.//w:t/text()',namespaces=N))
         patterns={
+            'stage_duration_placeholder':r'(?i)中学\s*[/／]\s*小学|小学\s*[/／]\s*中学|x{2,}\s*(?:[-—–~～至到]\s*x{2,})?\s*分钟',
             'teaching_time':r'[（(]\s*\d+(?:\s*(?:至|到|[-—–~～])\s*\d+)?\s*(?:分钟|秒钟|秒)\s*[）)]|(?:授课时长|总时长|用时|耗时)\s*[:：]?\s*\d+|(?:作答|思考|讨论|提问|播放|停顿|本课用|用)\s*(?:约)?\d+\s*(?:分钟|秒钟|秒)',
             'unicode_sup_sub':r'[\u00b2\u00b3\u00b9\u2070-\u209f]',
             'non_chinese_double_quote':r'["＂〝〞]',
@@ -82,8 +84,14 @@ def audit(task,docx,template):
             if re.search(pattern,line):candidates.append({'paragraph':i,'category':category,'text':line})
     cfgpath=task/'work/intake.json'
     cfg=json.loads(cfgpath.read_text(encoding='utf-8-sig')) if cfgpath.exists() else {}
+    timing_review=review_intake(cfg)
+    checks['stage_duration_and_timing_ready']=timing_review['timing_ready']
+    checks['image_source_record_exists']=(task/'work/image_sources.md').is_file()
     result={'machine_checks':checks,'machine_checks_pass':all(checks.values()),'not_final_acceptance':True,'docx_sha256':sha(docx),'template_sha256':sha(template),'text_characters':len(text),'source_checks':source_checks,'language_candidates_for_context_review':candidates,'mode':cfg.get('classroom','unknown'),'changed_original_parts':[n for n in A if B.get(n)!=A[n]],'new_parts':sorted(set(B)-set(A)),'manual_required':['Actual viewing of eight cases','Verified textbook edition and facts','Teaching mode and AI scope','Seven language rules in context','Fonts and sizes against user requirements','Open Word and inspect every page of the latest render','Media playback if required']}
     result['delivery_defaults_review']=delivery_review(b,docx)
+    result['intake_timing_review']=timing_review
+    result['image_source_review']={'record_exists':checks['image_source_record_exists'],'not_verified_by_machine':True}
+    result['manual_required'].extend(['Compare every lesson image with its original textbook page, including headers, footers and floating objects; exclude self-created shapes and AI screenshots', 'Check image_sources.md against the final Word; zero-image lessons need a pedagogical reason', 'Verify notice, school stage and actual timing source; reconcile all timing stages'])
     (task/'work').mkdir(exist_ok=True)
     (task/'work/machine_audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
     return result

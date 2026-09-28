@@ -1,6 +1,7 @@
 """Create a fresh task and preserve sources. Does not author or approve a lesson."""
 from pathlib import Path
 import argparse, hashlib, json, re, shutil
+from check_intake import review_intake
 SKILL=Path(__file__).resolve().parents[1]
 def digest(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -24,6 +25,8 @@ def normalize(cfg):
         raise ValueError('textbook_photos must be a list')
     out['textbook_policy']='provided_photos' if photos else 'search_revised'
     out['template_policy']='user_template' if out.get('template') else 'bundled_template'
+    out['lesson_image_policy']='verified_textbook_originals_only'
+    out['intake_review']=review_intake(out)
     return out
 def initialize(workspace, task, cfg):
     workspace=Path(workspace).resolve(strict=True)

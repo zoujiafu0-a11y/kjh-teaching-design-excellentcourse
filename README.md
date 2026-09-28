@@ -1,72 +1,49 @@
 # 精品课教学设计 Codex Skill
 
-## 最新更新 v1.0.1
+## 最新更新 v1.1.0（2026-09-28）
 
-本版统一教学设计的段落与语言规则：课题、年级等基本信息和各级标题不设置首行缩进；正文使用独立Word段落并首行缩进2个汉字；自写标题及正文不用破折号或箭头词语串；中文双引号成对使用并核查中文字体显示。标题分页通过局部段落属性处理，不把标题与正文合并成软换行段落。详细要求及验收条目见技能规则文件。
+[下载最新完整教学设计技能包](https://github.com/zoujiafu0-a11y/kjh-teaching-design-excellentcourse/raw/refs/heads/main/course-skill-packages/kjh-teaching-design-excellentcourse.zip)。此链接与仓库源码同步维护；Releases 中既有版本属于历史版本，可能不包含本次更新。
 
-下载[最新完整技能包](https://github.com/zoujiafu0-a11y/kjh-teaching-design-excellentcourse/releases/latest)，或使用仓库course-skill-packages目录中的同名ZIP。其他技能包维持原版本。
+本版增加参赛内容规则、教学评一体化、地理专项、使用教程和明确的目标验收条件。适用于制作或修改中小学精品课教学设计，不承诺获奖，也不把用户指定结构冒称为全国统一评分标准。
 
-`kjh-teaching-design-excellentcourse` 用于制作和修改中小学精品课教学设计，交付可编辑 Word 成稿、AI 教学脚本和质量检查记录。
+## 主要要求
 
-## 主要功能
+- 定稿前核实真实学段、参赛或课堂时长及具体目标分钟数；不能保留占位符或默认套用40、45分钟。
+- 教案插图仅使用匹配教材的真实原图，记录版本、页码和来源；AI图或网页截图不能替代教材图。
+- 保留教材分析、学情分析、教学重点难点。目标对应学习任务、可观察产出、评价标准和反馈，不使用旧式三维目标分栏。
+- 参赛四大环节中逐环节包含教师活动、学生活动、设计意图；不设置板书设计。
+- 地理按适用学段课程标准落实四项核心素养，结合原稿诊断、获奖案例迁移和有依据的育人结尾。
+- AI动画等方案强调易制作、服务真实学习难点；HTML互动作为独立资源，固定反馈不能冒称实时AI。
+- 地区、年份、参赛类别与官方评审依据逐次核验，不编造长沙或湖南的评分权重、专家意见和学生数据。
+- 使用Word模板副本，保护原件，执行教学审查、教材图源核验及最终逐页视觉检查。
 
-- 学习包内八张获奖案例截图，逐栏对照教学目标、教学内容、教学过程及设计意图。
-- 核对用户教材原页；材料不足时检索并核验对应版本与课时划分。
-- 支持有生、无生教学；无生设计检查现场互动依赖。
-- 默认每课时有 AI 赋能，常用数字人或 AI 情景视频，正文明确标注形式。
-- 基于内置或用户指定的 Word 模板副本回填，保留格式并逐页验收。
-- 检查单字成行、标点孤行、标题孤悬及图文分页问题。
+## 安装与更新
 
-## 安装
+下载上方ZIP，先备份已有技能，再将其中完整的 `kjh-teaching-design-excellentcourse` 文件夹放入项目 `.agents/skills/`。保留 `SKILL.md`、`agents`、`assets`、`references`、`scripts`、`tutorials` 全部内容，不要只复制入口文件。已下载的旧副本不会自动变更，需要重新下载并替换。
 
-下载发行版 ZIP 并解压，将其中完整的 `kjh-teaching-design-excellentcourse` 文件夹放到目标项目的 `.agents/skills/` 下。安装后结构应为：
+## 使用与设定目标
 
-```text
-你的项目/
-  .agents/
-    skills/
-      kjh-teaching-design-excellentcourse/
-        SKILL.md
-        agents/
-        assets/
-        references/
-        scripts/
-```
-
-保留整个技能文件夹，不要仅复制 SKILL.md。仓库首页说明和 SHA256SUMS.txt 不需要放进技能文件夹。
-
-## 使用示例
-
-在已加载该技能的 Codex 项目中提出：
+在Codex打开目标项目，提供自己的原稿、获奖案例、教材页面、比赛通知以及真实学段和实际时长。可直接发送：
 
 ```text
-使用 $kjh-teaching-design-excellentcourse
-学科：小学语文
-课题：拍手歌
-教材版本、年级与册次：以我提供的教材照片为准
-课堂形式：无生
-课时：两课时，分别制作
-请按技能规则核验教材、学习案例、写作、整理配图、回填模板、
-检查语言与排版并逐页验收，交付两份可编辑教学设计 Word。
+使用 $kjh-teaching-design-excellentcourse。
+先从我提供的通知和教材中核实学段、具体时长、版本与课题；缺失时集中补问，不自行假定。
+分析我的原稿和获奖案例，保留教材分析、学情分析，采用教学评一体化目标。
+教学过程四大环节均写教师活动、学生活动、设计意图，不设板书设计。
+结合学科核心素养加入便于制作的AI环节；适合时另交HTML互动方案。
+请设置正式完成目标，持续制作、核验和修订，直到所有适用必需验收通过，
+交付可编辑Word、AI教学脚本、分析说明、修改记录和质量报告。
+尚缺实际时长、教材依据或最终逐页视觉检查时，不得将目标标记完成。
 ```
 
-同时提供教材照片、指定模板及比赛的特殊要求。未说明的事项按技能默认规则执行；用户明确不需要 AI 时可以关闭。
+详细操作见[Codex使用教程](kjh-teaching-design-excellentcourse/references/codex_usage.md)、[参赛内容教程](kjh-teaching-design-excellentcourse/tutorials/competition_content_requirements.md)、[通知与配图教程](kjh-teaching-design-excellentcourse/tutorials/notice_and_textbook_images.md)。地理参赛另见[地理专项](kjh-teaching-design-excellentcourse/references/geography_competition.md)。
 
-## 环境与交付范围
+## 环境与交付边界
 
-技能需要具备文件读写、查看图片、联网检索和 Word/PDF 处理能力的 Codex 环境。辅助 Python 程序使用 Python 3.9 或更高版本，Word 结构审查程序使用 lxml。文档写作所需工具与依赖由执行环境确认。
+需要文件读写、图片查看、来源检索和Word/PDF处理能力。Python辅助程序需要Python 3.9+，Word结构审查使用lxml。Windows安装Microsoft Word时可使用 `scripts/export_word.ps1`；其他环境采用可用渲染工具。无法渲染不得声称逐页验收完成。
 
-`scripts/export_word.ps1` 是 Windows + 已安装 Microsoft Word 的导出方案。其他环境须使用实际可用的文档渲染工具；不能渲染时不得宣称逐页验收已完成。
+仅要求教案时交付教案和AI脚本；明确要求视频、音频或HTML成品时，按实际工具能力制作并验证。脚本不等于已制作视频。本技能不包含服务账号或凭证。
 
-仅要求教学设计时交付教案和 AI 脚本；明确要求数字人视频、情景视频或配音成品时，须具备相应生成与导出工具，再完成制作和播放检查。本技能本身不包含视频生成服务、账号或凭证。
+本包包含34个文件；Word模板和八张参考案例保持原样。其他六套配套技能包维持原版本。包校验值见[SHA256SUMS](course-skill-packages/SHA256SUMS.txt)。
 
-## 包内容
-
-- 1 份技能入口和 1 份界面配置。
-- 15 份参考规则和示例。
-- 3 份辅助脚本。
-- 8 张案例截图和 1 份 Word 模板。
-
-当前打包版本：`v1.0.0`，2026-09-26。包含默认逐课时 AI、数字人明确标签、案例逐栏学习、主稿栏目边界及单字成行检查规则。
-
-本包未声明新的开源许可证。随附案例与模板作为教学设计参考材料保留；发布可下载版本不表示对第三方素材授予额外许可。
+本包未声明新的开源许可证。案例和模板作为参考材料保留；发布下载不表示对第三方素材授予额外许可。

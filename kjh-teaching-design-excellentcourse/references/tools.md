@@ -19,6 +19,19 @@ python scripts/init_task.py --workspace <已获准工作区> --task <英文任�
 - textbook_photos：教材照片绝对路径列表；缺省标记search_revised，由Codex实时检索。
 - materials：其他材料路径列表；可含教参和旧稿。
 - 其他用户参数保留在intake.json，不自动将身份写入正文。
+- school_stage：小学、初中、高中或中学；school_stage_source为对应通知、教材或用户说明的位置。
+- duration_purpose：明确为普通课堂、比赛展示或其他实际用途。
+- duration_requirement：包含min_minutes、max_minutes、source；固定时长上下限相同，只有上限时下限为0。source必须指向真实通知或用户说明。
+- target_minutes：范围内大于0的具体目标分钟数，不接受字符串占位符、布尔值或非有限数。
+- timing_plan：由name和minutes组成的环节列表，合计等于target_minutes；媒体、思考及转换计入所属环节，不能重复计时。
+
+上述字段由Codex从自然语言整理，缺项不猜填。初始化可以先保护资料，同时保存intake_review中的待补项与lesson_image_policy；这不代表已经可以定稿。参数变更后重新运行检查，不能依赖初始化时的旧结果。
+
+```text
+python scripts/check_intake.py --config <任务内work/intake.json>
+```
+
+该只读命令输出parameters_ready、timing_ready、合计及问题清单，timing_ready为false时退出码为1。来源文本存在不等于来源真实性通过，须实际核对原通知；参数检查通过不等于实际试讲通过。
 
 程序只在workspace/output/<task>新建，已存在即停止以保护原任务。生成input/template.docx、八张案例、材料复制件、来源manifest.json、intake.json及progress.md。进度明确“待实际查看”，不会因复制成功写成已验收。
 
@@ -29,6 +42,8 @@ python scripts/audit_docx.py --task <任务目录> --docx <成稿路径> --templ
 ```
 
 结果写入work/machine_audit.json。发现结构差异不自动修复或豁免；根据用户明确授权区分必要变更与缺陷。自定义模板的变化需对应实际要求记录。语言扫描仅给复核候选，不能代替上下文阅读。
+
+审查会重新计算学段和时长参数、环节合计，并检查work/image_sources.md是否存在；记录缺失或时间不合格时machine_checks_pass为false。图片来源文件存在只代表有记录，程序不能判定图片就是教材原图；必须逐图对照原页与最终Word，包括页眉页脚、浮动对象以及自绘形状。零图也需来源记录说明教学上无需图。
 
 `delivery_defaults_review`补充检测教学时间括注/说明、Unicode伪上下标、西文双引号、中文引号数量、教科书三字段缺失/多余元信息，以及默认文件名，并统计原生上下标run数。它独立于结构检查结果：`machine_checks_pass=true`不能代表这些候选已处理。逐项修复或记录用户当次明确例外；扫描时间单位时保留学科原文与例题数据，代码/英寸中的双引号也需按语义判断。原生公式结构、裸写却应该设为上下标的字符，以及引号嵌套关系还须人工核验，不以零候选冒充全部通过。
 
