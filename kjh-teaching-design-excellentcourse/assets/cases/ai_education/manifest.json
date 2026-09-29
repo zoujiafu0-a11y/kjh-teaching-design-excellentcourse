@@ -1,0 +1,789 @@
+{
+  "version": 1,
+  "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+  "origin": "本对话附件；标题按用户材料规范转写，原图保持原字节。",
+  "cases": [
+    {
+      "id": "ai_01",
+      "title": "我的 AI 生活向导",
+      "grade": "一年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-86387217-6efd-4b16-be04-31b5cb41139c.png",
+          "observation": "基本信息和四项目标",
+          "path": "assets/cases/ai_education/ai_01/page_01.png",
+          "status": "archived",
+          "sha256": "928333b76dc8bd079fb4f227d8b4e05590467790fb7fc8f420363dd3e88b619b",
+          "size": 114191,
+          "dimensions": [
+            708,
+            519
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-31921038-159d-473b-b07f-c0a1397d7187.png",
+          "observation": "重点、难点与四列表头",
+          "path": "assets/cases/ai_education/ai_01/page_02.png",
+          "status": "archived",
+          "sha256": "1233b9278f21f328fdfc63ebce0002c1358863311d8a1df32072c4e9fe044671",
+          "size": 48146,
+          "dimensions": [
+            705,
+            327
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-6faefff6-2794-4c3e-9f0d-e5734e9f0da2.png",
+          "observation": "朵朵的一天、AI乐园导入",
+          "path": "assets/cases/ai_education/ai_01/page_03.png",
+          "status": "archived",
+          "sha256": "0e63b5fc9b28243db92a615cd81ae89c739cd4a35a1c797408fb12cbdb9afe36",
+          "size": 109619,
+          "dimensions": [
+            645,
+            630
+          ]
+        },
+        {
+          "order": 4,
+          "attachment": "codex-clipboard-2f512e84-4475-44e1-8e22-93b101db533c.png",
+          "observation": "探究新知与能力归纳",
+          "path": "assets/cases/ai_education/ai_01/page_04.png",
+          "status": "archived",
+          "sha256": "d3a64fa4068901248ae993ddd425e4c2ad25e41e7570cd1bfcbe33a29c16c1cc",
+          "size": 93040,
+          "dimensions": [
+            672,
+            408
+          ]
+        },
+        {
+          "order": 5,
+          "attachment": "codex-clipboard-e7d56942-6948-47c0-b8f4-b4356ca0a77a.png",
+          "observation": "概念和三轮智能大比拼",
+          "path": "assets/cases/ai_education/ai_01/page_05.png",
+          "status": "archived",
+          "sha256": "6baba1dd468369cc6c76f1b24d7428e4e4286abc19acfa0cfe86958d25c63357",
+          "size": 113814,
+          "dimensions": [
+            681,
+            873
+          ]
+        },
+        {
+          "order": 6,
+          "attachment": "codex-clipboard-e1ecdad7-3ac9-4288-bf84-09543955d0d8.png",
+          "observation": "巩固题前半",
+          "path": "assets/cases/ai_education/ai_01/page_06.png",
+          "status": "archived",
+          "sha256": "10440df36dcc780d34cc30e35b5781e4e5957b31d49b04bc73ebd4e84f70ded4",
+          "size": 42526,
+          "dimensions": [
+            666,
+            144
+          ]
+        },
+        {
+          "order": 7,
+          "attachment": "codex-clipboard-82e09ad5-f8a2-44b0-b924-0df6df8266c8.png",
+          "observation": "巩固题续及隐私保护",
+          "path": "assets/cases/ai_education/ai_01/page_07.png",
+          "status": "archived",
+          "sha256": "a9257a9516dac519c7d406d50b4184ab51b5f5cb2248f360cd47d9c99b4aa895",
+          "size": 59165,
+          "dimensions": [
+            663,
+            377
+          ]
+        },
+        {
+          "order": 8,
+          "attachment": "codex-clipboard-c854df2c-15ca-48e2-9dfc-d6313c32a542.png",
+          "observation": "课末小侦探家与视频作品描述",
+          "path": "assets/cases/ai_education/ai_01/page_08.png",
+          "status": "archived",
+          "sha256": "285e4d4ffc3533b0cacdcec316f0abb73131fad293e8860eab5843f1b04bcc5a",
+          "size": 118138,
+          "dimensions": [
+            687,
+            621
+          ]
+        },
+        {
+          "order": 9,
+          "attachment": "codex-clipboard-8f6d0513-65d6-4783-b14c-af21943f98b8.png",
+          "observation": "板书与情境、游戏、思维、安全四线",
+          "path": "assets/cases/ai_education/ai_01/page_09.png",
+          "status": "archived",
+          "sha256": "67525e99e93631468b04d09f032a6fca493e0ae9acb3747a0a588d6a51f00a0d",
+          "size": 151742,
+          "dimensions": [
+            681,
+            600
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_01.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_02",
+      "title": "你好，AI 新朋友",
+      "grade": "一年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-ac3f1e95-a59b-4e5f-a96c-7d8de3d89496.png",
+          "observation": "主题、四个素养维度目标与重难点",
+          "path": "assets/cases/ai_education/ai_02/page_01.png",
+          "status": "archived",
+          "sha256": "dc6b83e4e46dc405e204beaca62b8ae8db8cc73a3fd5b049d78598d0a4f3a944",
+          "size": 184378,
+          "dimensions": [
+            672,
+            960
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-eabffcbf-a8b9-431a-b568-2df40beb32d9.png",
+          "observation": "飞飞导入及语音、物体识别",
+          "path": "assets/cases/ai_education/ai_02/page_02.png",
+          "status": "archived",
+          "sha256": "1437e17a144c852a5b56b9923b1a7eb5c4313dfcd80ef1eb24d9072802b9ce8f",
+          "size": 128722,
+          "dimensions": [
+            738,
+            561
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-9b505f5d-4402-45ee-bcd7-8be65badda8e.png",
+          "observation": "重复物体识别后接AI绘画与概念",
+          "path": "assets/cases/ai_education/ai_02/page_03.png",
+          "status": "archived",
+          "sha256": "9e88c1ce81f9a8130767bc19526d855417aae433b5d85468b72cc88675f315ad",
+          "size": 162130,
+          "dimensions": [
+            756,
+            660
+          ]
+        },
+        {
+          "order": 4,
+          "attachment": "codex-clipboard-dc77c6df-2077-4a91-a957-9b928e206398.png",
+          "observation": "生活应用及配图",
+          "path": "assets/cases/ai_education/ai_02/page_04.png",
+          "status": "archived",
+          "sha256": "ef311e80696d4c273b2c551c638f99c415e76ce0710cfea4f9ea497b18ca8d94",
+          "size": 94459,
+          "dimensions": [
+            717,
+            416
+          ]
+        },
+        {
+          "order": 5,
+          "attachment": "codex-clipboard-602d0d2f-d28d-4a17-a86c-dda6c0bd4336.png",
+          "observation": "三场景练习、思维导图小结",
+          "path": "assets/cases/ai_education/ai_02/page_05.png",
+          "status": "archived",
+          "sha256": "51ac5de4ae25c64f8058f3d48021c306727aa269fdc792f604ccc6512461bb4d",
+          "size": 139710,
+          "dimensions": [
+            681,
+            582
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_02.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_03",
+      "title": "我家的“AI 生活小帮手”：认识智能音箱",
+      "grade": "一年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-5fdbb4b1-0cff-4712-84cd-493ae7e4701e.png",
+          "observation": "认知、经验、需求三方面学情",
+          "path": "assets/cases/ai_education/ai_03/page_01.png",
+          "status": "archived",
+          "sha256": "711f83900e23ad59e7f86fdcd3bf6d74a2525335c0478701070a0ea5bbb6d854",
+          "size": 191035,
+          "dimensions": [
+            720,
+            786
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-66bac9ee-58ac-45d7-aae4-f07f008cef66.png",
+          "observation": "设备视频准备及目标开头",
+          "path": "assets/cases/ai_education/ai_03/page_02.png",
+          "status": "archived",
+          "sha256": "c600e563d61d29d96ded33b0bac767dacaaf94f5a9fcb773f5ac75a84a55ff90",
+          "size": 38666,
+          "dimensions": [
+            675,
+            228
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-49b376ca-06a1-4739-8b32-d50ade311682.png",
+          "observation": "目标续、重难点",
+          "path": "assets/cases/ai_education/ai_03/page_03.png",
+          "status": "archived",
+          "sha256": "63a5b300b215e1ac1fb5807672ded1e269bec7b01780a77954a49394f22bec43",
+          "size": 124184,
+          "dimensions": [
+            696,
+            450
+          ]
+        },
+        {
+          "order": 4,
+          "attachment": "codex-clipboard-698fe279-e84e-4a93-935f-e4dbb53d68a1.png",
+          "observation": "生活导入、对比、三部件开头",
+          "path": "assets/cases/ai_education/ai_03/page_04.png",
+          "status": "archived",
+          "sha256": "70d67db38546e9a2360974e0898b9bc15ee38644d18652b5058c172d8f964ddd",
+          "size": 111782,
+          "dimensions": [
+            687,
+            585
+          ]
+        },
+        {
+          "order": 5,
+          "attachment": "codex-clipboard-9315cc53-46d9-447c-8c84-45ecd6dd1716.png",
+          "observation": "部件续、角色扮演、指令试错",
+          "path": "assets/cases/ai_education/ai_03/page_05.png",
+          "status": "archived",
+          "sha256": "16f0b28a8100b8724c26198157e6feb3eb5a877f9074955ca839caf7ef31d560",
+          "size": 99257,
+          "dimensions": [
+            681,
+            453
+          ]
+        },
+        {
+          "order": 6,
+          "attachment": "codex-clipboard-26b67086-cf14-4d81-89bb-f40e28d82b94.png",
+          "observation": "挑战边界、总结和设计想象",
+          "path": "assets/cases/ai_education/ai_03/page_06.png",
+          "status": "archived",
+          "sha256": "a98a3b379fddbc5d3519622628d7677d59ab6336a6612de0af104a8d2bbeab89",
+          "size": 88047,
+          "dimensions": [
+            696,
+            438
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_03.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_04",
+      "title": "初识人工智能",
+      "grade": "三年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-7ba7d2d1-bdd7-4058-9e20-3e6db4731732.png",
+          "observation": "三个目标",
+          "path": "assets/cases/ai_education/ai_04/page_01.png",
+          "status": "archived",
+          "sha256": "4a5ba11899a2e37777fa5c22805922d6c7a87e1000df05dc6e5569c5bc184b66",
+          "size": 95909,
+          "dimensions": [
+            744,
+            444
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-f212e74c-3387-4f93-beac-2f76fa128efb.png",
+          "observation": "重点难点、导入和应用",
+          "path": "assets/cases/ai_education/ai_04/page_02.png",
+          "status": "archived",
+          "sha256": "90a2189199ca7ea7b1ab274442bfd2d578dbf23460b1a82b4145cc7c0b2fc728",
+          "size": 84533,
+          "dimensions": [
+            672,
+            627
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-16147cb3-fb81-42ef-9ad1-9c74e76ca024.png",
+          "observation": "应用续、诗配画及风险讨论开头",
+          "path": "assets/cases/ai_education/ai_04/page_03.png",
+          "status": "archived",
+          "sha256": "9061a8678d6906354e9cbe59f246e76b9ed005e821eb21de2cbb21e7868a9b42",
+          "size": 109790,
+          "dimensions": [
+            683,
+            642
+          ]
+        },
+        {
+          "order": 4,
+          "attachment": "codex-clipboard-b8d3b566-4afb-4b30-b0d1-5a47e984891f.png",
+          "observation": "重复诗配画与风险讨论、星级自评",
+          "path": "assets/cases/ai_education/ai_04/page_04.png",
+          "status": "archived",
+          "sha256": "c4d4354359e7bbd2722547307b2c6b26ee78fa1ee0bcca3b706677cb04a80a87",
+          "size": 105087,
+          "dimensions": [
+            687,
+            669
+          ]
+        },
+        {
+          "order": 5,
+          "attachment": "codex-clipboard-9e7b11b1-1434-4c48-91a2-cf15e460d18d.png",
+          "observation": "自评续、收获疑问",
+          "path": "assets/cases/ai_education/ai_04/page_05.png",
+          "status": "archived",
+          "sha256": "70a6ae858bc83a1b4fd4bce12002e5fbbbbc989bd720db860b9cf79fbfd665e4",
+          "size": 46572,
+          "dimensions": [
+            723,
+            420
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_04.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_05",
+      "title": "“AI”学习 慧生活",
+      "grade": "三年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-ff22c3b0-c2b3-4a1e-8631-830bea34a17a.png",
+          "observation": "课程内容分析及四维目标",
+          "path": "assets/cases/ai_education/ai_05/page_01.png",
+          "status": "archived",
+          "sha256": "16c58ad5a26031a741a73f0c52763e80e837c18d40fbc454caa06c2db9801195",
+          "size": 137956,
+          "dimensions": [
+            732,
+            741
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-41f99c3f-4453-44b2-a7e2-c6428053a9d1.png",
+          "observation": "重难点，编号重复原样保留",
+          "path": "assets/cases/ai_education/ai_05/page_02.png",
+          "status": "archived",
+          "sha256": "fd2058965b308787e0123ec99ba0ca051114e7cc3f1cbba66c7c9a9f0d45f46f",
+          "size": 52581,
+          "dimensions": [
+            663,
+            297
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-e65d9c2b-7223-4f26-ae18-2adc421c62d3.png",
+          "observation": "谜语、购物直播、助农宣传语",
+          "path": "assets/cases/ai_education/ai_05/page_03.png",
+          "status": "archived",
+          "sha256": "5ac0661047af82baadac07765e25396958d0f997156691b525dee499f189afa1",
+          "size": 114965,
+          "dimensions": [
+            558,
+            813
+          ]
+        },
+        {
+          "order": 4,
+          "attachment": "codex-clipboard-4054e737-5a4b-454f-a11a-41f28bfcab69.png",
+          "observation": "技术类比、关键词优化、作业伦理、自评",
+          "path": "assets/cases/ai_education/ai_05/page_04.png",
+          "status": "archived",
+          "sha256": "ce80e16692e8caa18ec74b814b8993862c4e736b31f27d2e1d43474ff8eb4515",
+          "size": 87778,
+          "dimensions": [
+            516,
+            594
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_05.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_06",
+      "title": "认识 AI 新朋友",
+      "grade": "三年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-31e36e93-2d1e-4094-a7fc-848dce8943f4.png",
+          "observation": "概念等目标、重难点、导入与双标准标题",
+          "path": "assets/cases/ai_education/ai_06/page_01.png",
+          "status": "archived",
+          "sha256": "27f9e4e9c882d80ff7289f8f67972c8a0fcec2a77ce93934360c7f37d2e1ff49",
+          "size": 258695,
+          "dimensions": [
+            996,
+            1458
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-4da2a95d-b039-4e65-987e-1f509f3f99a3.png",
+          "observation": "发展史、误区、辨析、练习、未来设想",
+          "path": "assets/cases/ai_education/ai_06/page_02.png",
+          "status": "archived",
+          "sha256": "813b6271b1fc977bde10635b69a8d7bf6694fc5647478a86e9f3f4502c0bd6e6",
+          "size": 314624,
+          "dimensions": [
+            1029,
+            1479
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-b3f3655c-95cb-4c9b-bf6b-a16a6b95559a.png",
+          "observation": "风险提醒、小侦探与创意画作业",
+          "path": "assets/cases/ai_education/ai_06/page_03.png",
+          "status": "archived",
+          "sha256": "da4f7f4312640e320a6f3675d5430c4c0f2bf46e4703f8a3cd8f861b53997016",
+          "size": 136316,
+          "dimensions": [
+            1032,
+            825
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_06.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_07",
+      "title": "人工智能的“神奇耳朵”",
+      "grade": "四年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-92d2fa81-0a51-4787-a59f-d59cecc8eb0f.png",
+          "observation": "传统三维目标、重点开头",
+          "path": "assets/cases/ai_education/ai_07/page_01.png",
+          "status": "archived",
+          "sha256": "fea0401bfe46086ddfa5f39602a8e63e0920b85ab57b21f09e52ae0bcf04b250",
+          "size": 285931,
+          "dimensions": [
+            960,
+            1446
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-0b518b9d-81e6-4676-903f-48e9f396c1e8.png",
+          "observation": "重难点续、听声过程与讨论开头",
+          "path": "assets/cases/ai_education/ai_07/page_02.png",
+          "status": "archived",
+          "sha256": "c4adf57824e33b83e2392ee580ee981652416c10b8a6c7b58b4690e2b7ba62e3",
+          "size": 351748,
+          "dimensions": [
+            1005,
+            1554
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-cf4ce55d-8fcc-4f07-a4d0-0958f5935586.png",
+          "observation": "听错原因、设备举例、权限和作业",
+          "path": "assets/cases/ai_education/ai_07/page_03.png",
+          "status": "archived",
+          "sha256": "81a84a88dd31e37cc2eb57d5fba593e33c4ad7c52355e1f575f8be8968653490",
+          "size": 154169,
+          "dimensions": [
+            1008,
+            1116
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_07.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_08",
+      "title": "走进人工智能",
+      "grade": "四年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-b7a46245-0bc8-49fc-a97f-897e20011c4f.png",
+          "observation": "四项目标与重难点",
+          "path": "assets/cases/ai_education/ai_08/page_01.png",
+          "status": "archived",
+          "sha256": "881f3cab92f9f558939e9d3deb8dbb672f14678b4b1988448c732f22d190ab89",
+          "size": 155743,
+          "dimensions": [
+            1014,
+            1143
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-fc054443-4902-4525-b59f-e7b035b03a4c.png",
+          "observation": "音箱预录与现场挑战、场景分类",
+          "path": "assets/cases/ai_education/ai_08/page_02.png",
+          "status": "archived",
+          "sha256": "26211816534a41811edd12d21f8db3aade1fb19a343bd3009e308f07d3526f47",
+          "size": 274294,
+          "dimensions": [
+            954,
+            1370
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-7cafd709-8fac-499f-9a7f-65126eb1de33.png",
+          "observation": "分类卡片、声控灯追问、创意记录表",
+          "path": "assets/cases/ai_education/ai_08/page_03.png",
+          "status": "archived",
+          "sha256": "5b6bbc4dce3e37aeb0ee3a98ddb86e856e10099b57e469352f23666dbb673775",
+          "size": 313647,
+          "dimensions": [
+            981,
+            1395
+          ]
+        },
+        {
+          "order": 4,
+          "attachment": "codex-clipboard-a1423ac9-d5c5-44c4-8bb5-c125cdb83bef.png",
+          "observation": "四维三级量表、分享与总结",
+          "path": "assets/cases/ai_education/ai_08/page_04.png",
+          "status": "archived",
+          "sha256": "fc5d4b8af4e8c3e08e9be3fabd48b474ff1f48f4fba6edb971492b1c29596c47",
+          "size": 267015,
+          "dimensions": [
+            1017,
+            1179
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_08.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_09",
+      "title": "走进人工智能：揭秘 AI 超能力",
+      "grade": "五年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-5bdbc7a8-92cb-4b5b-9b84-f6dac5573135.png",
+          "observation": "三维目标、重难点、应用导入、AI工具箱标题",
+          "path": "assets/cases/ai_education/ai_09/page_01.png",
+          "status": "archived",
+          "sha256": "487d36a90871dbb9d97b0ad8060c35043f196cca8c6405f304054f902ec7611b",
+          "size": 245559,
+          "dimensions": [
+            969,
+            1467
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-b8ce2a6e-f398-4747-a4b4-17a2c50cbdd5.png",
+          "observation": "五项技术、猫狗识别步骤、伦理、人机协作",
+          "path": "assets/cases/ai_education/ai_09/page_02.png",
+          "status": "archived",
+          "sha256": "9ed2752e919dbfffe194cea7003b19b9184f04ffbc0339a33b95780ab8f4d1e7",
+          "size": 152769,
+          "dimensions": [
+            984,
+            1080
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_09.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_10",
+      "title": "数字化相声剧场",
+      "grade": "七年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-4be69fac-932e-4729-9024-c74e3094d0f8.png",
+          "observation": "目标重难点、小乐现挂问题及弱AI表格",
+          "path": "assets/cases/ai_education/ai_10/page_01.png",
+          "status": "archived",
+          "sha256": "bdc13f731bcd0cf08f393666383a09aa63fd624a1018ff43d0f90e141a6c9e6c",
+          "size": 276840,
+          "dimensions": [
+            957,
+            1446
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-ca7ae930-d2ed-47c2-8465-f71ba440227c.png",
+          "observation": "强AI表格续、相声类比、需求测试表",
+          "path": "assets/cases/ai_education/ai_10/page_02.png",
+          "status": "archived",
+          "sha256": "bfcfcd2f2a0140ce5deee12abf4619825bd39f0ca4dcb68f2e3638252edc2e94",
+          "size": 659344,
+          "dimensions": [
+            954,
+            1497
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-526333cc-680f-463b-8e33-cd847921888d.png",
+          "observation": "表情生成、技术比较、社会影响",
+          "path": "assets/cases/ai_education/ai_10/page_03.png",
+          "status": "archived",
+          "sha256": "a7efcdcd0b6281299e362fe3bcab246d084c9c840cb38e3e037d9b751d1faf4a",
+          "size": 437664,
+          "dimensions": [
+            960,
+            1470
+          ]
+        },
+        {
+          "order": 4,
+          "attachment": "codex-clipboard-0d5fed0e-2cb5-4333-9d11-e9a24585944a.png",
+          "observation": "校园功能升级、测试表、导图及分层作业",
+          "path": "assets/cases/ai_education/ai_10/page_04.png",
+          "status": "archived",
+          "sha256": "eca45b70b96cc9fbd24dfe40dcd5c098ffe53cb28fe8911f95e1accdccf7e644",
+          "size": 216052,
+          "dimensions": [
+            951,
+            1419
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_10.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_11",
+      "title": "认识大数据",
+      "grade": "七年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-672d4928-06d3-4494-8e7e-2c029e459083.png",
+          "observation": "四项目标、重难点、购物问题与概念",
+          "path": "assets/cases/ai_education/ai_11/page_01.png",
+          "status": "archived",
+          "sha256": "f5dca4e216677bebb1261342283c70fe0f06faf626febbaf87091ec9157a74b3",
+          "size": 294459,
+          "dimensions": [
+            984,
+            1455
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-b25c726e-4e91-4f1c-8e09-0d0665bea4cb.png",
+          "observation": "四例辨析、三天三个月比较及四维数据表",
+          "path": "assets/cases/ai_education/ai_11/page_02.png",
+          "status": "archived",
+          "sha256": "d5cb47f04f6bee4b70dbf79578d4fd300d926b1c8cae351a5ec598e357498758",
+          "size": 348168,
+          "dimensions": [
+            978,
+            1476
+          ]
+        },
+        {
+          "order": 3,
+          "attachment": "codex-clipboard-c2038c06-f604-4515-802c-348db320563d.png",
+          "observation": "AI与大数据关系、小侦探、隐私反思",
+          "path": "assets/cases/ai_education/ai_11/page_03.png",
+          "status": "archived",
+          "sha256": "2ce61370ad5eb5813d8928700724216b82e6b2ec20dafd076ea89c3fec704982",
+          "size": 273329,
+          "dimensions": [
+            992,
+            1203
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_11.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    },
+    {
+      "id": "ai_12",
+      "title": "AI 慧眼：从手动到自动的图像识别之旅",
+      "grade": "七年级",
+      "pages": [
+        {
+          "order": 1,
+          "attachment": "codex-clipboard-ba254867-2933-49fa-97dc-a5e01a8e5551.png",
+          "observation": "活动对应目标、重难点、导入和比较活动",
+          "path": "assets/cases/ai_education/ai_12/page_01.png",
+          "status": "archived",
+          "sha256": "623c821a266ca717053167bf6a4d522e2d7ba0c1b910b33e43f48bdc556ec788",
+          "size": 338480,
+          "dimensions": [
+            993,
+            1449
+          ]
+        },
+        {
+          "order": 2,
+          "attachment": "codex-clipboard-bbdf6057-9781-465f-b133-99ef3df71e5e.png",
+          "observation": "比较结论续、矩阵计算、特征卡与助力回家",
+          "path": "assets/cases/ai_education/ai_12/page_02.png",
+          "status": "archived",
+          "sha256": "1a61e02876aea851ca2ad7278b0f1b7b75888c6f45ba898fcd70c49d75525522",
+          "size": 323198,
+          "dimensions": [
+            996,
+            1326
+          ]
+        }
+      ],
+      "analysis": "references/ai_cases/ai_12.md",
+      "visual_review": "已实际查看所列原图及汇总图；非完整文字转录，局部遮挡见分析",
+      "authorization": "用户在本对话明确声明全部案例为本人原创，授权提取、改写和直接复用核心元素及合适原文。",
+      "missing_resources": "截图未附的实际数据、媒体、网页、学习单或测试结果未归档；见逐份分析"
+    }
+  ]
+}

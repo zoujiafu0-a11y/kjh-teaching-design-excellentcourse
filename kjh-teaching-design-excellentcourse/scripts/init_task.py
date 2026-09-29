@@ -1,12 +1,21 @@
 """Create a fresh task and preserve sources. Does not author or approve a lesson."""
 from pathlib import Path
 import argparse, hashlib, json, re, shutil
-from check_intake import review_intake
+from check_intake import review_intake, review_course
 SKILL=Path(__file__).resolve().parents[1]
 def digest(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()
 def normalize(cfg):
     out=dict(cfg)
+    course_type=out.get('course_type','subject')
+    if course_type not in ('subject','reading','ai_education'):raise ValueError('course_type must be subject, reading or ai_education')
+    out['course_type']=course_type
+    course=review_course(out)
+    if not course['course_ready']:raise ValueError('; '.join(course['issues']))
+    out['case_policy']=course['case_policy']
+    if course_type=='ai_education':
+        out['ai_case_ids']=list(dict.fromkeys(out['ai_case_ids']))
+        out['case_selection']=out['ai_case_ids']
     modes={'live':'live','有生':'live','有生课堂':'live','no_students':'no_students','无生':'no_students','无生课堂':'no_students'}
     mode=out.get('classroom','no_students')
     if mode not in modes:
@@ -23,9 +32,10 @@ def normalize(cfg):
     photos=out.get('textbook_photos',[])
     if not isinstance(photos,list):
         raise ValueError('textbook_photos must be a list')
-    out['textbook_policy']='provided_photos' if photos else 'search_revised'
+    out['textbook_policy']=('verify_reading_materials' if course_type=='reading' else ('provided_photos' if photos else 'search_revised'))
+    if course_type=='ai_education' and not photos:out['textbook_policy']='verify_ai_curriculum_materials'
     out['template_policy']='user_template' if out.get('template') else 'bundled_template'
-    out['lesson_image_policy']='verified_textbook_originals_only'
+    out['lesson_image_policy']='verified_reading_or_textbook_originals_only' if course_type=='reading' else 'verified_textbook_originals_only'
     out['intake_review']=review_intake(out)
     return out
 def initialize(workspace, task, cfg):
@@ -38,12 +48,32 @@ def initialize(workspace, task, cfg):
     if root.exists():
         raise FileExistsError('Existing task will not be overwritten: '+str(root))
     config=normalize(cfg)
-    template=Path(config.get('template') or SKILL/'assets/templates/excellent_course_template.docx').resolve(strict=True)
+    template_name='reading_course_template.docx' if config['course_type']=='reading' else 'excellent_course_template.docx'
+    template=Path(config.get('template') or SKILL/'assets/templates'/template_name).resolve(strict=True)
     sources=[('template',template,'template.docx')]
-    for i in range(1,9):
-        p=SKILL/'assets/cases'/f'case_{i:02}.png'
-        sources.append(('case',p.resolve(strict=True),p.name))
-    for role,key in [('textbook','textbook_photos'),('material','materials')]:
+    if config['course_type']=='reading':
+        case_root=SKILL/'assets/reading_cases'
+        available={p.name:p for p in case_root.iterdir() if p.is_dir()}
+        selected=config.get('reading_cases',sorted(available))
+        if not isinstance(selected,list) or not selected or any(x not in available for x in selected):
+            raise ValueError('reading_cases must be nonempty known case directory names')
+        for name in dict.fromkeys(selected):
+            for p in sorted(available[name].glob('*.png')):
+                sources.append(('reading_case',p.resolve(strict=True),name+'_'+p.name))
+    elif config['course_type']=='ai_education':
+        catalog=json.loads((SKILL/'assets/cases/ai_education/manifest.json').read_text(encoding='utf-8'))
+        cases={x['id']:x for x in catalog['cases']}
+        for cid in config['ai_case_ids']:
+            for page in cases[cid]['pages']:
+                p=(SKILL/page['path']).resolve(strict=True)
+                if not p.is_relative_to(SKILL) or digest(p)!=page['sha256']:
+                    raise ValueError('AI case source missing, altered or outside skill: '+cid)
+                sources.append(('ai_case',p,cid+'_'+p.name))
+    else:
+        for i in range(1,9):
+            p=SKILL/'assets/cases'/f'case_{i:02}.png'
+            sources.append(('case',p.resolve(strict=True),p.name))
+    for role,key in [('textbook','textbook_photos'),('reading','reading_photos'),('material','materials')]:
         entries=config.get(key,[])
         if not isinstance(entries,list):
             raise ValueError(key+' must be a list')

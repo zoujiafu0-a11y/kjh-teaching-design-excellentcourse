@@ -17,10 +17,32 @@ def number(value, zero=False):
     return type(value) in (int, float) and math.isfinite(value) and (value >= 0 if zero else value > 0)
 
 
+def review_course(cfg):
+    kind=cfg.get('course_type','subject')
+    issues=[]
+    if kind not in ('subject','reading','ai_education'):
+        issues.append('course_type必须为subject、reading或ai_education')
+    selected=cfg.get('ai_case_ids',[])
+    if kind=='ai_education':
+        known={f'ai_{i:02}' for i in range(1,13)}
+        if not isinstance(selected,list) or not selected or any(not isinstance(x,str) or x not in known for x in selected):
+            issues.append('ai_case_ids须为ai_01至ai_12的非空列表')
+    if cfg.get('classroom','no_students') not in ('live','no_students','有生','无生','有生课堂','无生课堂'):
+        issues.append('classroom无效')
+    enabled=cfg.get('ai_enabled',True)
+    if type(enabled) is not bool:
+        issues.append('ai_enabled须为JSON布尔值')
+    elif not enabled and cfg.get('ai_style') not in (None,'','none'):
+        issues.append('AI关闭与ai_style冲突')
+    return {'course_type':kind,'course_ready':not issues,'issues':issues,
+            'case_policy':{'subject':'subject_eight','reading':'reading_selected','ai_education':'ai_selected'}.get(kind,'invalid'),
+            'ai_case_ids':selected if kind=='ai_education' else []}
+
+
 def review_intake(cfg):
     issues = []
     if not isinstance(cfg, dict):
-        return {'parameters_ready': False, 'timing_ready': False, 'issues': ['输入必须是对象'], 'not_final_acceptance': True}
+        return {'parameters_ready': False, 'timing_ready': False, 'intake_ready': False, 'course_ready': False, 'issues': ['输入必须是对象'], 'not_final_acceptance': True}
     if not isinstance(cfg.get('school_stage'), str) or cfg.get('school_stage') not in STAGES:
         issues.append('缺少明确学段或仍为占位符')
     if not meaningful(cfg.get('school_stage_source')):
@@ -51,7 +73,10 @@ def review_intake(cfg):
         total = sum(row['minutes'] for row in plan)
         if not number(target) or not math.isclose(total, target, rel_tol=0, abs_tol=1e-6):
             issues.append('环节时间合计不等于具体目标时长')
+    course=review_course(cfg)
     return {'parameters_ready': parameters_ready, 'timing_ready': not issues,
+            'course_review':course, 'course_ready':course['course_ready'],
+            'intake_ready':not issues and course['course_ready'],
             'target_minutes': target, 'sum_minutes': total, 'issues': issues,
             'not_final_acceptance': True,
             'manual_required': ['核对学段和时长原始来源', '核对媒体、思考与转换无遗漏或重复计时', '实际试讲状态如实记录']}
@@ -63,4 +88,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     result = review_intake(json.loads(Path(args.config).read_text(encoding='utf-8-sig')))
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    raise SystemExit(0 if result['timing_ready'] else 1)
+    raise SystemExit(0 if result['intake_ready'] else 1)

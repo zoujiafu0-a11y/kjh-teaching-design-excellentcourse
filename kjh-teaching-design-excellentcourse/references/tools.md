@@ -1,5 +1,7 @@
 # 辅助程序
 
+适用边界：阅读课优先执行reading_course_requirements.md与reading_course.md；教材研究改为原书与阅读材料研究，教材学情另存，不强制学科四环节、三标签或学生活动栏，允许对应原书原页。正式模板按课程类别匹配；仅有阅读案例截图时使用获用户授权重建的阅读模板。其他共同质量要求继续执行。
+
 这些脚本供Codex执行，用户不需要填写配置或运行命令。Python使用当前文档环境提供的运行时。脚本所需lxml、python-docx等在使用前检查；不可用时使用当前环境允许的等效方法，不假称已运行。
 
 ## 初始化
@@ -31,9 +33,9 @@ python scripts/init_task.py --workspace <已获准工作区> --task <英文任�
 python scripts/check_intake.py --config <任务内work/intake.json>
 ```
 
-该只读命令输出parameters_ready、timing_ready、合计及问题清单，timing_ready为false时退出码为1。来源文本存在不等于来源真实性通过，须实际核对原通知；参数检查通过不等于实际试讲通过。
+该只读命令输出parameters_ready、timing_ready、合计及问题清单，intake_ready为false时退出码为1。来源文本存在不等于来源真实性通过，须实际核对原通知；参数检查通过不等于实际试讲通过。
 
-程序只在workspace/output/<task>新建，已存在即停止以保护原任务。生成input/template.docx、八张案例、材料复制件、来源manifest.json、intake.json及progress.md。进度明确“待实际查看”，不会因复制成功写成已验收。
+程序只在workspace/output/<task>新建，已存在即停止以保护原任务。按course_type选择模板，生成input/template.docx、对应案例、材料复制件、来源manifest.json、intake.json及progress.md。进度明确“待实际查看”，不会因复制成功写成已验收。
 
 ## Word机器检查
 
@@ -45,7 +47,7 @@ python scripts/audit_docx.py --task <任务目录> --docx <成稿路径> --templ
 
 审查会重新计算学段和时长参数、环节合计，并检查work/image_sources.md是否存在；记录缺失或时间不合格时machine_checks_pass为false。图片来源文件存在只代表有记录，程序不能判定图片就是教材原图；必须逐图对照原页与最终Word，包括页眉页脚、浮动对象以及自绘形状。零图也需来源记录说明教学上无需图。
 
-`delivery_defaults_review`补充检测教学时间括注/说明、教材页码定位语、Unicode伪上下标、西文双引号、中文引号数量、教科书三字段缺失/多余元信息，以及默认文件名，并统计原生上下标run数。它独立于结构检查结果：`machine_checks_pass=true`不能代表这些候选已处理。逐项修复或记录用户当次明确例外；扫描时间单位时保留学科原文与例题数据，代码/英寸中的双引号也需按语义判断。原生公式结构、裸写却应该设为上下标的字符，以及引号嵌套关系还须人工核验，不以零候选冒充全部通过。
+`delivery_defaults_review`补充检测教学时间括注/说明、教材页码定位语、Unicode伪上下标、西文双引号、中文引号数量、按类别识别教科书或阅读材料字段缺失/多余元信息，以及默认文件名，并统计原生上下标run数。它独立于结构检查结果：`machine_checks_pass=true`不能代表这些候选已处理。逐项修复或记录用户当次明确例外；扫描时间单位时保留学科原文与例题数据，代码/英寸中的双引号也需按语义判断。原生公式结构、裸写却应该设为上下标的字符，以及引号嵌套关系还须人工核验，不以零候选冒充全部通过。
 
 ## 本机Word导出
 
@@ -54,3 +56,13 @@ powershell -File scripts/export_word.ps1 -TaskRoot <任务目录> -InputDocx <�
 ```
 
 必须在有Word的Windows环境实际运行。导出不会改写DOCX；每次换一个render_vN目录。脚本限制输入和输出在任务内，只读打开并导出自己的文档。随后由Codex使用可用PDF工具渲染逐页PNG并全部查看。若沙箱阻止COM，按工具权限机制申请该只读导出操作，不自行绕过。
+
+## 阅读课适用方式
+
+course_type取subject、reading或ai_education，缺省subject；reading_lesson_type、reading_start_point记录语义判断。reading_photos可提供本课原书原页。reading_cases可指定assets/reading_cases下的案例目录名，省略则归档全部六篇，实际选读仍按课型。不支持的类别、越界案例名与已有输出目录一律报错。
+
+## 人工智能教育配置与兼容
+
+course_type支持subject、reading、ai_education，省略时保留subject。ai_education须提供非空`ai_case_ids`列表，范围ai_01至ai_12；由Codex先作教学判断后填入，脚本不按年级自动猜。初始化只复制选中AI案例全部原图并校验SHA256，写case_policy和case_selection；不夹带学科八图。非法ID、路径穿越和类型错误在创建目录前拒绝。
+
+`check_intake.py`同时返回course_review、course_ready和intake_ready；timing_ready仅表示原时长检查，intake_ready要求时长和分流均通过，命令以intake_ready决定退出码。`audit_docx.py`重新验证课程分流并追加AI教育人工审查项目。原配置缺省course_type继续subject；reading原配置和模板行为保留。缺时长可以初始化保护材料，不能通过定稿验收。
