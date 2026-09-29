@@ -1,6 +1,18 @@
 # 精品课教学设计 Codex Skill
 
-## 最新更新 v1.1.1（2026-09-29）
+## 最新更新 v1.2.0（2026-09-29）
+
+保留学科课程默认，新增人工智能教育整篇撰写流程。课程类型、课堂形式和AI赋能开关分别判断；原有默认无生、默认AI、四环节、模板及图源约束继续执行。
+
+完整归档十二份用户原创案例，共50张原截图，并提供逐份分析、直接复用记录、冲突迁移、技术核验和AI01至AI16验收。没有改变其他六套技能包。本次仅发布AI教育相关更新；本地独立进行的阅读课程更新不随此提交发布。
+
+入口：[AI教育整篇教程](kjh-teaching-design-excellentcourse/tutorials/ai_education_requirements.md)、[案例索引](kjh-teaching-design-excellentcourse/references/ai_education_cases.md)、[技术约束](kjh-teaching-design-excellentcourse/references/ai_education_sources.md)。
+
+调用示例：使用 $kjh-teaching-design-excellentcourse，制作七年级人工智能教育课《认识大数据》，依附件教材与通知，展示18分钟，无生课堂，关闭额外AI赋能；选择ai_11对标，完整设计数据来源、观察记录、证据判断、反馈和后续任务。
+
+该示例仅演示调用，真实课程仍须核验材料、通知及时间。发布验证检查skill结构和脚本路径，不代表新教案或实际试讲已完成。
+
+## 历史更新 v1.1.1（2026-09-29）
 
 未指定课堂形式时，默认制作无生课堂教学设计；用户明确要求有生时切换，需要两版则分别制作。无生稿仍保留教师活动、学生活动和设计意图，其中学生活动写预期学习任务与思考路径，不虚构现场回答。
 
@@ -8,7 +20,7 @@
 
 ## 上一版本 v1.1.0（2026-09-28）
 
-[下载最新完整教学设计技能包](https://github.com/zoujiafu0-a11y/kjh-teaching-design-excellentcourse/raw/refs/heads/main/course-skill-packages/kjh-teaching-design-excellentcourse.zip)。此链接与仓库源码同步维护；Releases 中既有版本属于历史版本，可能不包含本次更新。
+[下载最新完整教学设计技能包](course-skill-packages/kjh-teaching-design-excellentcourse.zip?raw=true)。此链接与仓库源码同步维护；Releases 中既有版本属于历史版本，可能不包含本次更新。
 
 本版增加参赛内容规则、教学评一体化、地理专项、使用教程和明确的目标验收条件。适用于制作或修改中小学精品课教学设计，不承诺获奖，也不把用户指定结构冒称为全国统一评分标准。
 
@@ -50,6 +62,9 @@
 
 仅要求教案时交付教案和AI脚本；明确要求视频、音频或HTML成品时，按实际工具能力制作并验证。脚本不等于已制作视频。本技能不包含服务账号或凭证。
 
-本包包含34个文件；Word模板和八张参考案例保持原样。其他六套配套技能包维持原版本。包校验值见[SHA256SUMS](course-skill-packages/SHA256SUMS.txt)。
+本包包含102个文件；原Word模板和八张学科参考图保持原样，另有十二份AI教育原创案例。其他六套配套技能包维持原版本。包校验值见[SHA256SUMS](course-skill-packages/SHA256SUMS.txt)。
 
 本包未声明新的开源许可证。案例和模板作为参考材料保留；发布下载不表示对第三方素材授予额外许可。
+
+
+十二份AI教育案例为用户本人原创并已授权提取、改写和直接复用；来源和授权记录见案例索引。此授权不扩展为对其他第三方素材的新许可。

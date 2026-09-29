@@ -1,6 +1,6 @@
 interface:
   display_name: "kjh-teaching-design-ExcellentCourse"
-  short_description: "深读教材并依据学生学习任务制作精品课Word，支持有生、无生及默认AI赋能"
+  short_description: "默认学科课程，支持人工智能教育专门分支，完整设计学习任务并验收精品课Word"
   default_prompt: "请使用 $kjh-teaching-design-excellentcourse，根据我的教材完成课程研究与精品课教学设计，核对学习任务并逐页验收后交付Word，AI开启时同时交付完整教学脚本。"
 policy:
   allow_implicit_invocation: true

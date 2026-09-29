@@ -31,9 +31,9 @@ python scripts/init_task.py --workspace <已获准工作区> --task <英文任�
 python scripts/check_intake.py --config <任务内work/intake.json>
 ```
 
-该只读命令输出parameters_ready、timing_ready、合计及问题清单，timing_ready为false时退出码为1。来源文本存在不等于来源真实性通过，须实际核对原通知；参数检查通过不等于实际试讲通过。
+该只读命令输出parameters_ready、timing_ready、合计及问题清单，intake_ready为false时退出码为1。来源文本存在不等于来源真实性通过，须实际核对原通知；参数检查通过不等于实际试讲通过。
 
-程序只在workspace/output/<task>新建，已存在即停止以保护原任务。生成input/template.docx、八张案例、材料复制件、来源manifest.json、intake.json及progress.md。进度明确“待实际查看”，不会因复制成功写成已验收。
+程序只在workspace/output/<task>新建，已存在即停止以保护原任务。生成input/template.docx、按课程类型选定的案例、材料复制件、来源manifest.json、intake.json及progress.md。进度明确“待实际查看”，不会因复制成功写成已验收。
 
 ## Word机器检查
 
@@ -54,3 +54,9 @@ powershell -File scripts/export_word.ps1 -TaskRoot <任务目录> -InputDocx <�
 ```
 
 必须在有Word的Windows环境实际运行。导出不会改写DOCX；每次换一个render_vN目录。脚本限制输入和输出在任务内，只读打开并导出自己的文档。随后由Codex使用可用PDF工具渲染逐页PNG并全部查看。若沙箱阻止COM，按工具权限机制申请该只读导出操作，不自行绕过。
+
+## 人工智能教育配置与兼容
+
+course_type支持subject、ai_education，省略时保留subject。ai_education须提供非空`ai_case_ids`列表，范围ai_01至ai_12；由Codex先作教学判断后填入，脚本不按年级自动猜。初始化只复制选中AI案例全部原图并校验SHA256，写case_policy和case_selection；不夹带学科八图。非法ID、路径穿越和类型错误在创建目录前拒绝。
+
+`check_intake.py`同时返回course_review、course_ready和intake_ready；timing_ready仅表示原时长检查，intake_ready要求时长和分流均通过，命令以intake_ready决定退出码。`audit_docx.py`重新验证课程分流并追加AI教育人工审查项目。原配置缺省course_type继续subject。缺时长可以初始化保护材料，不能通过定稿验收。

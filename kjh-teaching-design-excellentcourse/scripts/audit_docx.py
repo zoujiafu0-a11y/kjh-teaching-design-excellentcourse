@@ -6,8 +6,6 @@ import argparse,hashlib,json,re,posixpath
 from check_intake import review_intake
 N={'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 PAGE_LOCATOR = re.compile(r'(?:第\s*[0-9０-９一二三四五六七八九十百]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９一二三四五六七八九十百]+)*\s*页|[0-9０-９]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９]+)*\s*页|(?<![A-Za-z])[PpＰｐ]\.?\s*[0-9０-９]+(?:\s*[-—–~～至到]\s*[0-9０-９]+)?)')
-PAGE_LOCATOR = re.compile(r'(?:第\s*[0-9０-９一二三四五六七八九十百]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９一二三四五六七八九十百]+)*\s*页|[0-9０-９]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９]+)*\s*页|(?<![A-Za-z])[PpＰｐ]\.?\s*[0-9０-９]+(?:\s*[-—–~～至到]\s*[0-9０-９]+)?)')
-PAGE_LOCATOR = re.compile(r'(?:第\s*[0-9０-９一二三四五六七八九十百]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９一二三四五六七八九十百]+)*\s*页|[0-9０-９]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９]+)*\s*页|(?<![A-Za-z])[PpＰｐ]\.?\s*[0-9０-９]+(?:\s*[-—–~～至到]\s*[0-9０-９]+)?)')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def tree(e):
     if e is None:return None
@@ -17,14 +15,12 @@ def package(p):
         if z.testzip() is not None:raise ValueError('Bad DOCX ZIP')
         return {n:z.read(n) for n in z.namelist()}
 
-def delivery_review(document,filename):
+def delivery_review(document,filename,course_type='subject'):
     """Find default-rule issues; context/user overrides still require human review."""
     findings=[]
     for i,p in enumerate(document.findall('.//w:p',N),1):
         text=''.join(p.xpath('.//w:t/text()',namespaces=N))
         patterns={
-            'textbook_page_locator':PAGE_LOCATOR,
-            'textbook_page_locator':PAGE_LOCATOR,
             'textbook_page_locator':PAGE_LOCATOR,
             'stage_duration_placeholder':r'(?i)中学\s*[/／]\s*小学|小学\s*[/／]\s*中学|x{2,}\s*(?:[-—–~～至到]\s*x{2,})?\s*分钟',
             'teaching_time':r'[（(]\s*\d+(?:\s*(?:至|到|[-—–~～])\s*\d+)?\s*(?:分钟|秒钟|秒)\s*[）)]|(?:授课时长|总时长|用时|耗时)\s*[:：]?\s*\d+|(?:作答|思考|讨论|提问|播放|停顿|本课用|用)\s*(?:约)?\d+\s*(?:分钟|秒钟|秒)',
@@ -40,7 +36,7 @@ def delivery_review(document,filename):
         if cells and ''.join(cells[0].xpath('.//w:t/text()',namespaces=N)).strip()=='教科书':
             textbook_rows.append(''.join(row.xpath('.//w:t/text()',namespaces=N)))
     if not textbook_rows:
-        findings.append({'category':'textbook_block_not_found','text':'需按实际模板人工确认教科书板块'})
+        findings.append({'category':'textbook_block_not_found','text':'需按实际模板人工确认'+'教科书'+'板块'})
     for text in textbook_rows:
         for label,pattern in [('书名',r'书\s*名\s*[:：]'),('出版社',r'出版社\s*[:：]'),('出版日期',r'出版日期\s*[:：]')]:
             if not re.search(pattern,text):findings.append({'category':'textbook_field_missing','field':label,'text':text})
@@ -92,14 +88,14 @@ def audit(task,docx,template):
     cfg=json.loads(cfgpath.read_text(encoding='utf-8-sig')) if cfgpath.exists() else {}
     timing_review=review_intake(cfg)
     checks['stage_duration_and_timing_ready']=timing_review['timing_ready']
+    checks['course_route_ready']=timing_review['course_ready']
     checks['image_source_record_exists']=(task/'work/image_sources.md').is_file()
-    delivery_defaults=delivery_review(b,docx)
+    delivery_defaults=delivery_review(b,docx,cfg.get('course_type','subject'))
     checks['no_textbook_page_locators']=not any(x['category']=='textbook_page_locator' for x in delivery_defaults['candidates'])
-    delivery_defaults=delivery_review(b,docx)
-    checks['no_textbook_page_locators']=not any(x['category']=='textbook_page_locator' for x in delivery_defaults['candidates'])
-    delivery_defaults=delivery_review(b,docx)
-    checks['no_textbook_page_locators']=not any(x['category']=='textbook_page_locator' for x in delivery_defaults['candidates'])
-    result={'machine_checks':checks,'machine_checks_pass':all(checks.values()),'not_final_acceptance':True,'docx_sha256':sha(docx),'template_sha256':sha(template),'text_characters':len(text),'source_checks':source_checks,'language_candidates_for_context_review':candidates,'mode':cfg.get('classroom','unknown'),'changed_original_parts':[n for n in A if B.get(n)!=A[n]],'new_parts':sorted(set(B)-set(A)),'manual_required':['Actual viewing of eight cases','Verified textbook edition and facts','Teaching mode and AI scope','Seven language rules and textbook-page locator review in context','Fonts and sizes against user requirements','Open Word and inspect every page of the latest render','Media playback if required']}
+    result={'machine_checks':checks,'machine_checks_pass':all(checks.values()),'not_final_acceptance':True,'docx_sha256':sha(docx),'template_sha256':sha(template),'text_characters':len(text),'source_checks':source_checks,'language_candidates_for_context_review':candidates,'mode':cfg.get('classroom','unknown'),'changed_original_parts':[n for n in A if B.get(n)!=A[n]],'new_parts':sorted(set(B)-set(A)),'manual_required':[('Actual viewing of selected original AI education cases and whole-design tutorial' if cfg.get('course_type')=='ai_education' else 'Actual viewing of eight subject cases'),'Verified textbook edition and facts','Teaching mode and AI scope','Seven language rules and textbook-page locator review in context','Fonts and sizes against user requirements','Open Word and inspect every page of the latest render','Media playback if required']}
+    if cfg.get('course_type')=='ai_education':
+        result['manual_required'].extend(['AI01-AI16 acceptance with source evidence', 'Separate course content from AI empowerment switch', 'Validate analogies, data provenance, training versus retrieval and actual system capabilities'])
+    result['course_type']=cfg.get('course_type','subject')
     result['delivery_defaults_review']=delivery_defaults
     result['intake_timing_review']=timing_review
     result['image_source_review']={'record_exists':checks['image_source_record_exists'],'not_verified_by_machine':True}
