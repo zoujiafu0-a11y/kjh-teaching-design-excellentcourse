@@ -12,7 +12,7 @@ python scripts/init_task.py --workspace <已获准工作区> --task <英文任�
 
 配置支持：
 - lesson_title、subject、grade、volume、textbook_version等课程字段。
-- classroom：live或no_students，兼容有生、无生；默认live。
+- classroom：live或no_students，兼容有生、无生；默认no_students，明确要求有生时用live。
 - ai_enabled：布尔值，默认true；用户明确不做时设为false。
 - ai_style：开启时可为digital_human、scenario_animation、auto或用户要求的具体形式；默认auto，Codex根据教学内容作最后选择。关闭时不应填AI形式。
 - template：指定模板绝对路径；缺省用包内模板。
@@ -45,7 +45,7 @@ python scripts/audit_docx.py --task <任务目录> --docx <成稿路径> --templ
 
 审查会重新计算学段和时长参数、环节合计，并检查work/image_sources.md是否存在；记录缺失或时间不合格时machine_checks_pass为false。图片来源文件存在只代表有记录，程序不能判定图片就是教材原图；必须逐图对照原页与最终Word，包括页眉页脚、浮动对象以及自绘形状。零图也需来源记录说明教学上无需图。
 
-`delivery_defaults_review`补充检测教学时间括注/说明、Unicode伪上下标、西文双引号、中文引号数量、教科书三字段缺失/多余元信息，以及默认文件名，并统计原生上下标run数。它独立于结构检查结果：`machine_checks_pass=true`不能代表这些候选已处理。逐项修复或记录用户当次明确例外；扫描时间单位时保留学科原文与例题数据，代码/英寸中的双引号也需按语义判断。原生公式结构、裸写却应该设为上下标的字符，以及引号嵌套关系还须人工核验，不以零候选冒充全部通过。
+`delivery_defaults_review`补充检测教学时间括注/说明、教材页码定位语、Unicode伪上下标、西文双引号、中文引号数量、教科书三字段缺失/多余元信息，以及默认文件名，并统计原生上下标run数。它独立于结构检查结果：`machine_checks_pass=true`不能代表这些候选已处理。逐项修复或记录用户当次明确例外；扫描时间单位时保留学科原文与例题数据，代码/英寸中的双引号也需按语义判断。原生公式结构、裸写却应该设为上下标的字符，以及引号嵌套关系还须人工核验，不以零候选冒充全部通过。
 
 ## 本机Word导出
 

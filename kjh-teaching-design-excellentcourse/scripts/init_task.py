@@ -8,7 +8,7 @@ def digest(p):
 def normalize(cfg):
     out=dict(cfg)
     modes={'live':'live','有生':'live','有生课堂':'live','no_students':'no_students','无生':'no_students','无生课堂':'no_students'}
-    mode=out.get('classroom','live')
+    mode=out.get('classroom','no_students')
     if mode not in modes:
         raise ValueError('classroom must be live or no_students')
     out['classroom']=modes[mode]

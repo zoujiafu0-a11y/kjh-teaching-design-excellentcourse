@@ -5,6 +5,9 @@ from lxml import etree as E
 import argparse,hashlib,json,re,posixpath
 from check_intake import review_intake
 N={'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
+PAGE_LOCATOR = re.compile(r'(?:第\s*[0-9０-９一二三四五六七八九十百]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９一二三四五六七八九十百]+)*\s*页|[0-9０-９]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９]+)*\s*页|(?<![A-Za-z])[PpＰｐ]\.?\s*[0-9０-９]+(?:\s*[-—–~～至到]\s*[0-9０-９]+)?)')
+PAGE_LOCATOR = re.compile(r'(?:第\s*[0-9０-９一二三四五六七八九十百]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９一二三四五六七八九十百]+)*\s*页|[0-9０-９]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９]+)*\s*页|(?<![A-Za-z])[PpＰｐ]\.?\s*[0-9０-９]+(?:\s*[-—–~～至到]\s*[0-9０-９]+)?)')
+PAGE_LOCATOR = re.compile(r'(?:第\s*[0-9０-９一二三四五六七八九十百]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９一二三四五六七八九十百]+)*\s*页|[0-9０-９]+\s*(?:(?:至|到|[-—–~～、，,])\s*[0-9０-９]+)*\s*页|(?<![A-Za-z])[PpＰｐ]\.?\s*[0-9０-９]+(?:\s*[-—–~～至到]\s*[0-9０-９]+)?)')
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def tree(e):
     if e is None:return None
@@ -20,6 +23,9 @@ def delivery_review(document,filename):
     for i,p in enumerate(document.findall('.//w:p',N),1):
         text=''.join(p.xpath('.//w:t/text()',namespaces=N))
         patterns={
+            'textbook_page_locator':PAGE_LOCATOR,
+            'textbook_page_locator':PAGE_LOCATOR,
+            'textbook_page_locator':PAGE_LOCATOR,
             'stage_duration_placeholder':r'(?i)中学\s*[/／]\s*小学|小学\s*[/／]\s*中学|x{2,}\s*(?:[-—–~～至到]\s*x{2,})?\s*分钟',
             'teaching_time':r'[（(]\s*\d+(?:\s*(?:至|到|[-—–~～])\s*\d+)?\s*(?:分钟|秒钟|秒)\s*[）)]|(?:授课时长|总时长|用时|耗时)\s*[:：]?\s*\d+|(?:作答|思考|讨论|提问|播放|停顿|本课用|用)\s*(?:约)?\d+\s*(?:分钟|秒钟|秒)',
             'unicode_sup_sub':r'[\u00b2\u00b3\u00b9\u2070-\u209f]',
@@ -87,8 +93,14 @@ def audit(task,docx,template):
     timing_review=review_intake(cfg)
     checks['stage_duration_and_timing_ready']=timing_review['timing_ready']
     checks['image_source_record_exists']=(task/'work/image_sources.md').is_file()
-    result={'machine_checks':checks,'machine_checks_pass':all(checks.values()),'not_final_acceptance':True,'docx_sha256':sha(docx),'template_sha256':sha(template),'text_characters':len(text),'source_checks':source_checks,'language_candidates_for_context_review':candidates,'mode':cfg.get('classroom','unknown'),'changed_original_parts':[n for n in A if B.get(n)!=A[n]],'new_parts':sorted(set(B)-set(A)),'manual_required':['Actual viewing of eight cases','Verified textbook edition and facts','Teaching mode and AI scope','Seven language rules in context','Fonts and sizes against user requirements','Open Word and inspect every page of the latest render','Media playback if required']}
-    result['delivery_defaults_review']=delivery_review(b,docx)
+    delivery_defaults=delivery_review(b,docx)
+    checks['no_textbook_page_locators']=not any(x['category']=='textbook_page_locator' for x in delivery_defaults['candidates'])
+    delivery_defaults=delivery_review(b,docx)
+    checks['no_textbook_page_locators']=not any(x['category']=='textbook_page_locator' for x in delivery_defaults['candidates'])
+    delivery_defaults=delivery_review(b,docx)
+    checks['no_textbook_page_locators']=not any(x['category']=='textbook_page_locator' for x in delivery_defaults['candidates'])
+    result={'machine_checks':checks,'machine_checks_pass':all(checks.values()),'not_final_acceptance':True,'docx_sha256':sha(docx),'template_sha256':sha(template),'text_characters':len(text),'source_checks':source_checks,'language_candidates_for_context_review':candidates,'mode':cfg.get('classroom','unknown'),'changed_original_parts':[n for n in A if B.get(n)!=A[n]],'new_parts':sorted(set(B)-set(A)),'manual_required':['Actual viewing of eight cases','Verified textbook edition and facts','Teaching mode and AI scope','Seven language rules and textbook-page locator review in context','Fonts and sizes against user requirements','Open Word and inspect every page of the latest render','Media playback if required']}
+    result['delivery_defaults_review']=delivery_defaults
     result['intake_timing_review']=timing_review
     result['image_source_review']={'record_exists':checks['image_source_record_exists'],'not_verified_by_machine':True}
     result['manual_required'].extend(['Compare every lesson image with its original textbook page, including headers, footers and floating objects; exclude self-created shapes and AI screenshots', 'Check image_sources.md against the final Word; zero-image lessons need a pedagogical reason', 'Verify notice, school stage and actual timing source; reconcile all timing stages'])
