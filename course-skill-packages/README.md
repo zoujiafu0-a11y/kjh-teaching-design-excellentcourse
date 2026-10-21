@@ -1,130 +1,17 @@
-> 2026-09-29：作业练习技能包明确以用户提供的《2026学科课程精品课作业练习(1).docx》为今后默认模板；当次另给模板时以当次为准。内置模板文件未改动，已重新核对并打包。
+# 精品课原创案例技能包
 
-> 2026-09-29：学习任务单包已确认使用《2026学科课程精品课学习任务单(1).docx》同版内置模板作为默认模板；仅更新技能指令与模板说明，模板资源本体不变。下方下载包及SHA256校验值已同步。
+2026-10-21更新教学设计、学习任务单和作业三个技能。按用户本人整篇案例严格模仿，适用原句直接复用，仅替换新材料要求的事实；不统一改环节、不自动增加AI或评价任务。教学设计默认设置板书设计，优先沿用范本，缺少对应依据时标待补。
 
-> 2026-09-29：教学设计包新增阅读课分支与六篇原创案例，保留学科默认及现有AI教育分支。源码、ZIP、校验值同步；以下旧版说明作为历史记录。
+本批2645页均逐页看图并阅读可辨正文。原图微字和材料缺项保留待核，具体范围见各技能 references/user_cases/reading_record.md。23页学生身份或人像原图不公开，保留去身份任务文字。原件保持本地不变。
 
-> 2026-09-29：教学设计技能包已更新为 v1.1.1，默认无生设计，并禁止在最终教案自写文字中使用教材页码定位语；源码与本目录ZIP同步。其他六个ZIP保持原样，历史Release不代表本次版本。
+完整ZIP含全部技能资源、原图、既有模板以及用户新提供的五类2026模板压缩包和14份对应Word模板，安装请下载Release附件。Git仓库保留可审阅文本及清单；新增的大体积原图随完整ZIP发布，不从Git源码下载包安装。既有旧ZIP属于历史版本。
 
+|技能|完整安装包|字节|SHA256|
+|---|---|---:|---|
+|`kjh-homework-excellentcourse`|[下载](https://github.com/zoujiafu0-a11y/kjh-teaching-design-excellentcourse/releases/download/v1.2.0/kjh-homework-excellentcourse.zip)|215763738|`d8a6c3d647d90e82816bacfeef74bed68ee3e0d0fc78129a2c2d61367c59709e`|
+|`kjh-studytasksheet-excellentcourse`|[下载](https://github.com/zoujiafu0-a11y/kjh-teaching-design-excellentcourse/releases/download/v1.2.0/kjh-studytasksheet-excellentcourse.zip)|407815472|`a0e720223ceca40d41a4fa8b4def5bfc219303e536ae0be45c33b7f98ebdc0a0`|
+|`kjh-teaching-design-excellentcourse`|[下载](https://github.com/zoujiafu0-a11y/kjh-teaching-design-excellentcourse/releases/download/v1.2.0/kjh-teaching-design-excellentcourse.zip)|1059491794|`c91278159f4c96a065af2bed712e8aaa7e009b6a0812b1c8bbafc174ee7c9f8f`|
 
+先备份再解压完整同名技能目录。不得只替换SKILL.md。三个包通过入口元信息、引用路径、原模板哈希、ZIP解压逐文件哈希与小范围文字前向验证。没有生成新课程Word，未声称本轮进行Word渲染、真实课堂测评或AI检测。
 
-# 精品课课程制作技能包
-
-
-
-本目录提供7个可单独使用的Codex技能完整包。每个ZIP内保留技能文件夹、SKILL.md、界面配置、参考规则、脚本及该技能自带的模板和案例。归档日期：2026-09-27；逐字稿技能包于2026-09-28更新。
-
-
-
-## 技能与调用
-
-
-
-|规范调用|默认成果|下载|
-
-|---|---|---|
-
-|`$kjh-teaching-design-excellentcourse`|教学设计.docx|[kjh-teaching-design-excellentcourse.zip](kjh-teaching-design-excellentcourse.zip)|
-
-|`$kjh-preclassexploration-excellentcourse`|课前探秘人物.docx|[kjh-preclassexploration-excellentcourse.zip](kjh-preclassexploration-excellentcourse.zip)|
-
-|`$kjh-inclasspractice-excellentcourse`|课时同步练习.docx|[kjh-inclasspractice-excellentcourse.zip](kjh-inclasspractice-excellentcourse.zip)|
-
-|`$kjh-studytasksheet-excellentcourse`|学习任务单.docx|[kjh-studytasksheet-excellentcourse.zip](kjh-studytasksheet-excellentcourse.zip)|
-
-|`$kjh-ppt-excellentcourse`|课件.pptx|[kjh-ppt-excellentcourse.zip](kjh-ppt-excellentcourse.zip)|
-
-|`$kjh-transcripts-excellentcourse`|逐字稿.docx|[kjh-transcripts-excellentcourse.zip](kjh-transcripts-excellentcourse.zip)|
-
-|`$kjh-homework-excellentcourse`|作业练习.docx|[kjh-homework-excellentcourse.zip](kjh-homework-excellentcourse.zip)|
-
-
-
-## 逐字稿技能包更新
-
-
-
-本次逐字稿包默认按无生课堂编写，只写教师口播与真实PPT播放提示；用户明确要求有生课堂时才加入学生互动。制作Word时逐项对照用户指定的参考稿字体、字号、标题样式和段落格式。包内新增`references/tutorial.md`，提供可直接用于Codex的执行指令与验收条件。
-
-
-
-## 安装
-
-
-
-下载所需ZIP并解压，将其中完整技能文件夹放到目标项目的`.agents/skills/`。保留原文件夹名称和内部目录，不要只复制SKILL.md。例如：
-
-
-
-```text
-
-你的项目/
-
-  .agents/
-
-    skills/
-
-      kjh-homework-excellentcourse/
-
-        SKILL.md
-
-        agents/
-
-        assets/
-
-        references/
-
-        scripts/
-
-```
-
-
-
-在该项目中调用对应技能，并提供课程材料。使用已安装同名技能时，应先保留旧版，再更新完整文件夹。
-
-
-
-## 使用示例
-
-
-
-```text
-
-使用 $kjh-homework-excellentcourse。
-
-依据我提供的定稿教学设计制作《作业练习.docx》。
-
-没有另给模板时使用内置的2026学科课程精品课作业练习模板副本，保留固定格式。
-
-教材出版年月没有可靠信息时留空，学生使用纸笔，不依赖个人设备或操作AI。
-
-只制作这份作业练习，不修改主教案。
-
-请完成独立答案或评价审核、排版、逐页检查和返修后交付。
-
-```
-
-
-
-课后作业、课时同步练习和学习任务单各有分工，按目标文件选择，单文件请求不会默认重做整套课程。课件技能保护当次固定模板，尤其封面，并要求原生动画实际放映检查。PPT包中的氮循环课件用于学习内容设计，不代替当次固定模板。
-
-
-
-## 环境与验证
-
-
-
-需要具备本地文件操作、图像查看与文档处理能力的Codex环境。Python脚本按各包工具说明使用lxml等依赖；Windows Office辅助程序需要已安装的Word或PowerPoint。其他环境应采用实际可用的可靠渲染方式，不能在未查看页面或放映时声称验收通过。
-
-
-
-这些技能不自带账号、密钥或付费媒体服务。实际可生成的媒体取决于当前工具及用户要求。未知教材信息不编造，未来课程仍须逐课核验。
-
-
-
-所有ZIP均核对包完整性与解压后文件哈希，并通过技能结构校验。该发布检查不代替新课程的教学审核。校验值见SHA256SUMS.txt。
-
-
-
-模板和案例随技能保留，未新增开源授权；可下载不代表对第三方素材授予额外使用许可。教学设计技能目录与本目录ZIP同步更新，历史发行版保留。
-
+其他四个技能包保持原版，见course-skill-packages历史文件。模板和案例未新增对第三方素材的授权。

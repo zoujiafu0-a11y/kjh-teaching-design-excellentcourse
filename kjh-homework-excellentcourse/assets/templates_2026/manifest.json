@@ -1,0 +1,59 @@
+[
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026人工智能教育精品课所有模板.zip",
+    "sha256": "57a0f965c97af3ef5b27faf15336633ba1ada0cb308e322178f670cde9558b13"
+  },
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026学科课程精品课所有模板 (1).zip",
+    "sha256": "2e95edf6eba74c2f3865db25ad37ff135d51e421c06aa5fac7b4d7a675cfefe8"
+  },
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026特殊教育精品课所有模板.zip",
+    "sha256": "d7e275dd14eea649c24bbe644deb07ce99ae2f790617adfe2fbe49129f6d82c3"
+  },
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026科技教育精品课所有模板.rar",
+    "sha256": "0cf8667e6da59e084df51f7bcd6a29716328d9851dd31aeda35b5822eaba5f22"
+  },
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026阅读精品课所有模板.zip",
+    "sha256": "d1b26ba4f272dafe36a091b9dfba20f6de7e006581f3e7f5409b5a4a49a5667d"
+  },
+  {
+    "kind": "editable_template",
+    "category": "subject",
+    "file": "assets/templates_2026/subject/2026学科课程精品课作业练习.docx",
+    "source_archive": "2026学科课程精品课所有模板 (1)",
+    "member_name": "2026学科课程精品课作业练习.docx",
+    "sha256": "f8fee9a7128711eb7177315431c7ae98a990631ba0c63a6f66729af361097124"
+  },
+  {
+    "kind": "editable_template",
+    "category": "technology",
+    "file": "assets/templates_2026/technology/2026科技教育-【DOCX】实践作业.docx",
+    "source_archive": "2026科技教育精品课所有模板",
+    "member_name": "2026科技教育-【DOCX】实践作业.docx",
+    "sha256": "8fe46fb0424dd1dfe723fb52c4f84d72d9ab3a6e84eb05a7081a1108eb8bfff9"
+  },
+  {
+    "kind": "editable_template",
+    "category": "ai_education",
+    "file": "assets/templates_2026/ai_education/2026人工智能教育课程精品课实践作业.docx",
+    "source_archive": "2026人工智能教育精品课所有模板",
+    "member_name": "2026人工智能教育课程精品课实践作业.docx",
+    "sha256": "f809589ba957ab35582125c439d05420035abe4e7bf45b1b1ee44b03b0ad890a"
+  },
+  {
+    "kind": "editable_template",
+    "category": "special_education",
+    "file": "assets/templates_2026/special_education/作业练习.docx",
+    "source_archive": "2026特殊教育精品课所有模板",
+    "member_name": "作业练习.docx",
+    "sha256": "e083e882c308952f968fe958e0acca844219f928224b6e0280f7f7f8d71a7cdd"
+  }
+]

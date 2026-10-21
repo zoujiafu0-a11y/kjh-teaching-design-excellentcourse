@@ -1,0 +1,67 @@
+[
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026人工智能教育精品课所有模板.zip",
+    "sha256": "57a0f965c97af3ef5b27faf15336633ba1ada0cb308e322178f670cde9558b13"
+  },
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026学科课程精品课所有模板 (1).zip",
+    "sha256": "2e95edf6eba74c2f3865db25ad37ff135d51e421c06aa5fac7b4d7a675cfefe8"
+  },
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026特殊教育精品课所有模板.zip",
+    "sha256": "d7e275dd14eea649c24bbe644deb07ce99ae2f790617adfe2fbe49129f6d82c3"
+  },
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026科技教育精品课所有模板.rar",
+    "sha256": "0cf8667e6da59e084df51f7bcd6a29716328d9851dd31aeda35b5822eaba5f22"
+  },
+  {
+    "kind": "original_archive",
+    "file": "assets/templates_2026/archives/2026阅读精品课所有模板.zip",
+    "sha256": "d1b26ba4f272dafe36a091b9dfba20f6de7e006581f3e7f5409b5a4a49a5667d"
+  },
+  {
+    "kind": "editable_template",
+    "category": "subject",
+    "file": "assets/templates_2026/subject/2026学科课程精品课教学设计.docx",
+    "source_archive": "2026学科课程精品课所有模板 (1)",
+    "member_name": "2026学科课程精品课教学设计.docx",
+    "sha256": "9aab9067db5cd054357b5192b30355c4926c0eb3298dd431dd64b0ddccf8d20e"
+  },
+  {
+    "kind": "editable_template",
+    "category": "reading",
+    "file": "assets/templates_2026/reading/2026阅读精品课教学设计.docx",
+    "source_archive": "2026阅读精品课所有模板",
+    "member_name": "2026阅读精品课教学设计.docx",
+    "sha256": "7b5587151106c7bd150087776226c639d38110d33f76b4dca1fa9dfda78d4bd7"
+  },
+  {
+    "kind": "editable_template",
+    "category": "technology",
+    "file": "assets/templates_2026/technology/2026科技教育-【DOCX】教学设计模板.docx",
+    "source_archive": "2026科技教育精品课所有模板",
+    "member_name": "2026科技教育-【DOCX】教学设计模板.docx",
+    "sha256": "69da8cedba31fee39fc9fc1481c07bd36390388a86f4820255ad4a299d798c09"
+  },
+  {
+    "kind": "editable_template",
+    "category": "ai_education",
+    "file": "assets/templates_2026/ai_education/2026人工智能教育精品课教学设计.docx",
+    "source_archive": "2026人工智能教育精品课所有模板",
+    "member_name": "2026人工智能教育精品课教学设计.docx",
+    "sha256": "27b3752b07867e5f4ebb056a5a945066096acf81daf09f45bdf2a6d19ebc2353"
+  },
+  {
+    "kind": "editable_template",
+    "category": "special_education",
+    "file": "assets/templates_2026/special_education/教学设计（特殊教育类）.docx",
+    "source_archive": "2026特殊教育精品课所有模板",
+    "member_name": "教学设计（特殊教育类）.docx",
+    "sha256": "8d18e24427e3a03e7403019f3e3b00f80f12577594724e1e39ef1e32c7384655"
+  }
+]

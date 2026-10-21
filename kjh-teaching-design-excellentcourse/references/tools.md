@@ -1,6 +1,6 @@
-# 辅助程序
+# 辅助程序与严格模仿边界
 
-适用边界：阅读课优先执行reading_course_requirements.md与reading_course.md；教材研究改为原书与阅读材料研究，教材学情另存，不强制学科四环节、三标签或学生活动栏，允许对应原书原页。正式模板按课程类别匹配；仅有阅读案例截图时使用获用户授权重建的阅读模板。其他共同质量要求继续执行。
+严格模仿时，优先直接在已有任务内保护模板副本并工作。旧 init_task.py 是历史初始化辅助程序，会复制旧学科案例并设置旧默认值，不能凭其配置决定范本、课堂形式或AI开关。只有显式核对全部配置与所选范本一致后才使用；不为运行脚本创建用户未指定的业务子项目。脚本输出仅为结构候选问题，不能因其默认规则改写原句、删除原图、增加栏目或判忠实范本不合格。下文为参数参考。
 
 这些脚本供Codex执行，用户不需要填写配置或运行命令。Python使用当前文档环境提供的运行时。脚本所需lxml、python-docx等在使用前检查；不可用时使用当前环境允许的等效方法，不假称已运行。
 
@@ -14,9 +14,9 @@ python scripts/init_task.py --workspace <已获准工作区> --task <英文任�
 
 配置支持：
 - lesson_title、subject、grade、volume、textbook_version等课程字段。
-- classroom：live或no_students，兼容有生、无生；默认no_students，明确要求有生时用live。
-- ai_enabled：布尔值，默认true；用户明确不做时设为false。
-- ai_style：开启时可为digital_human、scenario_animation、auto或用户要求的具体形式；默认auto，Codex根据教学内容作最后选择。关闭时不应填AI形式。
+- classroom：live或no_students，兼容有生、无生；由当前用户或选定范本确定；不得让旧脚本默认值覆盖原案。
+- ai_enabled：布尔值，必须按当前用户或原范本明确填入；无AI则false。
+- ai_style：开启时可为digital_human、scenario_animation、auto或用户要求的具体形式；按当前用户或原范本填写，不自主新增形式。关闭时不应填AI形式。
 - template：指定模板绝对路径；缺省用包内模板。
 - textbook_photos：教材照片绝对路径列表；缺省标记search_revised，由Codex实时检索。
 - materials：其他材料路径列表；可含教参和旧稿。

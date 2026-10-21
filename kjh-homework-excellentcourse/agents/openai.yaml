@@ -1,0 +1,6 @@
+"interface":
+  "display_name": "kjh-Homework-excellentcourse"
+  "short_description": "严格沿用本人完整案例的结构、原句与顺序，仅作必要事实替换，保护模板并逐页验收"
+  "default_prompt": "请使用 $kjh-homework-excellentcourse，完整阅读适配的本人原创范本，逐段逐句复用适用原句，仅替换本次真实材料所需事实，缺项明确标注，并保护模板及逐页验收。"
+"policy":
+  "allow_implicit_invocation": true
